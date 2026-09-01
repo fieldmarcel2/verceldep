@@ -1,23 +1,29 @@
-# Product Rating API
+# Modular Flask API with Blueprints
 
-A lightweight Flask REST API that filters products from [DummyJSON](https://dummyjson.com/products) by category and minimum rating.
+A Flask REST API built with **Flask Blueprints** for modular route segregation, privacy, and security. Deployed on [Vercel](https://vercel.com).
 
-## Endpoints
+## 🚀 Architecture & Blueprints
 
+The application is structured into isolated Blueprints with URL prefixes:
+
+### 👤 Users Blueprint (`/api/users`)
 | Method | Route | Description |
 |--------|-------|-------------|
-| GET | `/` | Welcome message |
-| GET | `/test` | Health check |
-| GET | `/<category_type>/<n>` | Products in `category_type` with rating ≥ `n` |
+| GET | `/api/users/test` | Test endpoint for the users blueprint |
+| GET | `/api/users/profile` | Get user profile data |
 
-## Example
+### 📦 Products Blueprint (`/api/products`)
+| Method | Route | Description |
+|--------|-------|-------------|
+| GET | `/api/products/test` | Test endpoint for the products blueprint |
+| GET | `/api/products/<category_type>/<n>` | Products in `category_type` with rating ≥ `n` |
 
-```
-GET /smartphones/4.5
-```
-Returns all smartphones with a rating of 4.5 or higher.
+### 🌐 Root
+| Method | Route | Description |
+|--------|-------|-------------|
+| GET | `/` | API overview & registered blueprint routes |
 
-## Local Development
+## 💻 Local Development
 
 ```bash
 # Create and activate virtual environment
@@ -32,8 +38,9 @@ pip install -r requirements.txt
 python api/index.py
 ```
 
-## Deploy to Vercel
+## 🚀 Deploy to Vercel
 
 ```bash
-vercel
+npx vercel
 ```
+Or link this repository directly on [vercel.com/new](https://vercel.com/new).
